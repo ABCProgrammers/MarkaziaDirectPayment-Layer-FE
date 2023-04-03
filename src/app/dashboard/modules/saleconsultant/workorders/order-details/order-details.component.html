@@ -1,0 +1,129 @@
+<div class="card-page">
+  <div class="row" *ngIf="details; let details; else loading">
+    <div class="col-md-12">
+      <div class="top-details">
+        <p>
+          Date <span> {{details.order.orderDate | date:' d MMM y '}} </span>
+          &nbsp; Time <span> {{details.order.orderDate | date:' h:mm a '}} </span>
+        </p>
+
+        <p>      <span class="lbcolor" > Status: </span><span> {{statusObj.translations[0].statusName}} &nbsp; &nbsp; &nbsp; &nbsp;</span>     <span class="lbcolor" >Order No.</span><span>{{details.order.invoiceNo}} </span> </p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card-collect customerDetail">
+        <h3> Customer Details </h3>
+        <div class="collect-details">
+          <div class="char"> {{custmerName}} </div>
+          <div>
+            <div class="card-sm">
+              <h4> {{details.customer.customerName}}</h4>
+              <p>{{details.customer.email}}</p>
+            </div>
+            <div class="card-sm">
+              <h4> Customer No </h4>
+              <p> {{details.customer.mobile }} </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="card-collect">
+        <h3 style="margin-bottom: 20px;"> Order Details </h3>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-sm-3">
+                <div class="card-sm">
+                  <h4> Vehicle  </h4>
+                  <p> {{details.vin.brand.brand ? details.vin.brand.brand : 'No data'}} 
+
+                    {{details.vin.brand.modelName?details.vin.brand.modelName:"No data"}}
+                    {{details.vin.modelYear?details.vin.modelYear:"No data"}}
+                    </p>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="card-sm">
+                  <h4> Cash Card No</h4>
+                  <p *ngIf="details.cashCards.length>0"> {{details.cashCards ? details.cashCards : 'No data'}}</p>
+                  <p *ngIf="details.cashCards.length==0"> No data</p>
+                </div>
+               
+
+              </div>
+              <div class="col-sm-3">
+                <div class="card-sm">
+                  <h4> Opportunity No</h4>
+                  <p> {{details.order.directPaymentSalesOrderOpportunityNo ? details.order.directPaymentSalesOrderOpportunityNo : 'No data'}}</p>
+                </div>
+               
+
+              </div>
+              <div class="col-sm-3">
+                <div class="card-sm">
+                  <h4> Sales Consultant</h4>
+                  <p> {{details.salesConsultant.salesConsultantName ? details.salesConsultant.salesConsultantName : 'No data'}}</p>
+                </div>
+               
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="col-md-12">
+      <div class="card-collect">
+        <div class="row">
+          <div class="col-md-6">
+            
+            <div class="form-group">
+              <label> Sales note </label>
+              <textarea class="form-control" [value]="details.order.salesNote" rows="3" disabled></textarea>
+            </div>
+          </div>
+          <div class="col-md-6">
+            
+            <div class="total-card justify-content-end pt-25">
+              <p > Grand Amount </p>
+              <div class="total"> {{details.order.grandAmount}} JD </div>
+              <!-- <button class="btn" (click)="openModalPayment()"
+                [disabled]="(details.order.status[0].statusId != 10001 && details.order.status[0].statusId != 10003 && details.order.status[0].statusId != 10005)">
+                Collect </button> -->
+            </div>
+            <div class="total-card justify-content-end pt-25">
+              <p > Remaining Amount to pay </p>
+              <div class="total"> {{details.order.remainingAmount}} JD </div>
+           
+            </div>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="btns-group px-0 mx-0">
+        <button type="button" class="btn btn-cancel" routerLink="/workorders">Close</button>
+        <!-- <button type="button" class="btn btn-save" (click)="NeedModify()"
+          [disabled]="(details.order.status[0].statusId != 10001 && details.order.status[0].statusId != 10003 && details.order.status[0].statusId != 10005)">
+          Need Modify</button> -->
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div>
+        <ng-template #loading>
+          <div>
+            <app-loading></app-loading>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>

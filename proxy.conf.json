@@ -1,0 +1,6 @@
+{
+    "/api": {
+      "target": "https://qntrllayer.azurewebsites.net/POSAPI",
+      "secure": false
+    }
+  }
