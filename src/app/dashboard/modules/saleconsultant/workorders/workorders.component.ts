@@ -54,7 +54,7 @@ export class WorkOrdersComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.headerService.setTitle('Direct Payement Work Orders');
+    this.headerService.setTitle('Direct Payment Work Orders');
 
      if (localStorage.getItem('collectBranchId')) {
        this.branchId = +localStorage.getItem('collectBranchId');
@@ -85,7 +85,7 @@ export class WorkOrdersComponent implements OnInit {
       localStorage.setItem('collectVin', this.vin);
     }
 
-    this.headerService.setTitle('Direct Payement Work Orders > Order Details');
+    this.headerService.setTitle('Direct Payment Work Orders > Order Details');
    this.router.navigateByUrl('/workorders/details/' + item.directPaymentSalesOrderOpportunityNo);
    
   }
@@ -259,21 +259,14 @@ console.log(this.workorders);
   
   }
   sortByStatus() {
-    if (this.sort == 9) {
+    if (this.sort == 7) {
       this.sort = 1;
     } else {
-      this.sort = this.sort == 8 ? 9 : 8;
+      this.sort = this.sort == 6 ? 7 : 6;
     }
     this.GetServicesDirectPaymentWorkOrders();
   }
-  sortByPrice() {
-    if (this.sort == 11) {
-      this.sort = 1;
-    } else {
-      this.sort = this.sort == 10 ? 11 : 10;
-    } this.GetServicesDirectPaymentWorkOrders();
-  
-  }
+
   sortByDate() {
     if (this.sort == 7) {
       this.sort = 1;

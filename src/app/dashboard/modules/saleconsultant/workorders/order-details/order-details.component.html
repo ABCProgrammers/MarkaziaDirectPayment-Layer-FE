@@ -7,7 +7,7 @@
           &nbsp; Time <span> {{details.order.orderDate | date:' h:mm a '}} </span>
         </p>
 
-        <p>      <span class="lbcolor" > Status: </span><span> {{statusObj.translations[0].statusName}} &nbsp; &nbsp; &nbsp; &nbsp;</span>     <span class="lbcolor" >Order No.</span><span>{{details.order.invoiceNo}} </span> </p>
+        <p>       Status: <span> {{statusObj.translations[0].statusName}} &nbsp; &nbsp;</span>     Order No.<span>{{details.order.invoiceNo}} </span> </p>
       </div>
     </div>
     <div class="col-md-4">
@@ -37,11 +37,14 @@
               <div class="col-sm-3">
                 <div class="card-sm">
                   <h4> Vehicle  </h4>
-                  <p> {{details.vin.brand.brand ? details.vin.brand.brand : 'No data'}} 
-
+                  <p *ngIf="details.vin.brand!=null"> 
+                      {{details.vin.brand.brand ? details.vin.brand.brand : 'No data'}} 
                     {{details.vin.brand.modelName?details.vin.brand.modelName:"No data"}}
                     {{details.vin.modelYear?details.vin.modelYear:"No data"}}
                     </p>
+                    <p *ngIf="details.vin.brand==null">
+                      No data 
+                    </p> 
                 </div>
               </div>
               <div class="col-sm-3">

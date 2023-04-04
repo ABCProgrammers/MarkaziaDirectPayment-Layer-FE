@@ -33,6 +33,7 @@
 }
 .card-table thead th .btn {
   padding: 0px;
+  cursor:poin;
 }
 
 .card-table tbody td {
@@ -68,4 +69,9 @@
 {
 border: #f1f3f3;
 background-color: #e9ecef00;
+}
+
+.sortable:hover {
+  cursor: pointer;
+  cursor: hand;
 }

@@ -52,13 +52,13 @@ export class SidenavComponent implements OnInit {
       .push(
       
       {
-        Title: 'Direct Payement Work Orders',
+        Title: 'Direct Payment Work Orders',
         IsActive: false,
         IsSelect: true,
         Icon: 'assets/images/navicon/collect.png',
         Icon2: 'assets/images/navicon/collect2.png',
         url: '/workorders',
-        title: 'Direct Payement Work Orders',
+        title: 'Direct Payment Work Orders',
         type: 1,
         canClick: false,
         canView: false,
