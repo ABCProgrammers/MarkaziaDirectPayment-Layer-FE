@@ -69,7 +69,6 @@ export class WorkOrdersComponent implements OnInit {
   }
 
   ViewCollectDetails(item) {
-    debugger;
 
     // localStorage.setItem('collectionOrderNum',this.collectionOrderNum.toString());
 
@@ -99,7 +98,7 @@ export class WorkOrdersComponent implements OnInit {
   collects: any;
   workorders:any;
   GetServicesDirectPaymentWorkOrders() {
-    debugger;
+    debugger
       return this.WorkOdersService
       .GetServicesDirectPaymentWorkOrders(
         this.branchId,
@@ -111,7 +110,7 @@ export class WorkOrdersComponent implements OnInit {
         this.pageNo
       )
       .subscribe((response: any) => {
-        debugger;
+        
         if (response) {
           this.workorders = response.data;
           
@@ -187,7 +186,7 @@ console.log(this.workorders);
     const text = event.target.value;
     // console.log(text.length);
     if (text.length >= 3) {
-      debugger;
+      
       this.searchText = text;
       this.pageNo = 0;
       this.loadDataWithCheck();
@@ -222,7 +221,7 @@ console.log(this.workorders);
     debugger;
     console.log(event?.target.value);
     //const text = event.target.value;
-    if (event.target.value >= 2) {
+    if (event.target.value.length >= 2) {
       this.opportunityNo = event.target.value;
       this.pageNo = 0;
       this.serviceAdvisorId=this.opportunityNo;
@@ -234,6 +233,7 @@ console.log(this.workorders);
     }
   }
   removeSearchOpportunityNo(){
+    debugger;
     this.opportunityNo = '';
     this.serviceAdvisorId='';
     this.pageNo = 0;
@@ -241,6 +241,7 @@ console.log(this.workorders);
     this.loadDataWithCheck();
   }
   sortByCustomer() {
+    debugger
     if (this.sort == 3) {
       this.sort = 1;
     } else {
@@ -250,6 +251,7 @@ console.log(this.workorders);
     this.GetServicesDirectPaymentWorkOrders();
   }
   sortByType() {
+    debugger
     if (this.sort == 5) {
       this.sort = 1;
     } else {
@@ -259,6 +261,7 @@ console.log(this.workorders);
   
   }
   sortByStatus() {
+    debugger
     if (this.sort == 7) {
       this.sort = 1;
     } else {
@@ -268,10 +271,11 @@ console.log(this.workorders);
   }
 
   sortByDate() {
-    if (this.sort == 7) {
+    debugger
+    if (this.sort == 5) {
       this.sort = 1;
     } else {
-      this.sort = this.sort == 6 ? 7 : 6;
+      this.sort = this.sort == 4 ? 5 : 4;
     }
     this.GetServicesDirectPaymentWorkOrders();
   }
@@ -285,7 +289,7 @@ console.log(this.workorders);
 
   collectUserId: number;
   filterByStatusId(e){
-    debugger;
+    
     console.log(e);
     this.statusId=e.id;
     this.pageNo = 0;
